@@ -7,10 +7,10 @@ namespace Killerfilo.src.List
     {
         // Nodo di testa della lista
         private ListNode<T>? head = head;
-        protected int length = head == null ? 0 : 1;
+        protected readonly int length = (head == null) ? 0 : 1;
 
         // Proprietà per la lunghezza della lista
-        public int Length { get => length; protected set => length = value; }
+        public int Length { get => length;}
         protected ListNode<T>? Head { get => head; set => head = value; }
 
         // Proprietà per il nodo di testa
@@ -26,7 +26,7 @@ namespace Killerfilo.src.List
         public override string ToString(){
             if (Head == null)
             {
-                return "Head : Empty";
+                return "[]";
             }
             StringBuilder stringBuilder = new();
             stringBuilder.Append('[');
