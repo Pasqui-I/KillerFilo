@@ -7,7 +7,8 @@ namespace Killerfilo.src
     {
         private static void Main(string[] args)
         {
-            LinkedList.LinkedList<int> list = new(new(10));
+            LinkedList.LinkedList<int> list = new();
+            Console.WriteLine(list);
             for (int i = 0; i < 10; i++)
             {
                 list.Add(new(i));

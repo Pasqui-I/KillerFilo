@@ -1,19 +1,14 @@
 using System.Text;
+using Killerfilo.src.List;
 
 namespace Killerfilo.src.LinkedList
 {
-    class LinkedList<T>(ListNode<T>? head = null)
+    class LinkedList<T>(ListNode<T> head) : List.List<T>(head)
     {
-        private ListNode<T>? head = head;
-        private int length = head == null ? 0 : 1;
-
-        public int Length { get => length; set => length = value; }
-        internal ListNode<T>? Head { get => head; set => head = value; }
-
-        public void Add(ListNode<T> node)
+        public override void Add(ListNode<T> node)
         {
             ArgumentNullException.ThrowIfNull(node);
-            if (head == null)
+            if (Head == null)
             {
                 AddToEmptyList(node);
                 return;
@@ -23,17 +18,17 @@ namespace Killerfilo.src.LinkedList
         }
         private void AddToEmptyList(ListNode<T> node)
         {
-            head = node;
+            Head = node;
             length++;
         }
         private void AddToEnd(ListNode<T> node)
         {
-            if (head == null)
+            if (Head == null)
             {
                 throw new NullReferenceException("Head is empty");
             }
 
-            ListNode<T> curr = head;
+            ListNode<T> curr = Head;
             while (curr.Next != null)
             {
                 curr = curr.Next;
@@ -42,17 +37,17 @@ namespace Killerfilo.src.LinkedList
             length++;
         }
 
-        public void Remove(ListNode<T> node)
+        public override void Remove(ListNode<T> node)
         {
             ArgumentNullException.ThrowIfNull(node);
-            if (head == null)
+            if (Head == null)
             {
                 throw new NullReferenceException("Lista vuota");
             }
 
             T val = node.Val;
 
-            if (head.Val != null && head.Val.Equals(val))
+            if (Head.Val != null && Head.Val.Equals(val))
             {
                 RemoveHeadNode();
                 return;
@@ -63,21 +58,21 @@ namespace Killerfilo.src.LinkedList
 
         private void RemoveHeadNode()
         {
-            if (head == null)
+            if (Head == null)
             {
                 throw new NullReferenceException("Head is empty");
             }
-            head = head.Next;
+            Head = Head.Next;
             length--;
         }
         private void RemoveFromMiddle(ListNode<T> node)
         {
-            if (head == null)
+            if (Head == null)
             {
                 throw new NullReferenceException("Head is empty");
             }
-            ListNode<T>? prev = head;
-            ListNode<T>? curr = head.Next;
+            ListNode<T>? prev = Head;
+            ListNode<T>? curr = Head.Next;
 
             while (curr != null)
             {
@@ -94,13 +89,13 @@ namespace Killerfilo.src.LinkedList
 
         public override string ToString()
         {
-            if (head == null)
+            if (Head == null)
             {
                 return "Head : Empty";
             }
             StringBuilder stringBuilder = new();
             stringBuilder.Append('[');
-            ListNode<T> curr = head;
+            ListNode<T> curr = Head;
             while (curr.Next != null)
             {
                 stringBuilder.Append(curr.Val + ",");
