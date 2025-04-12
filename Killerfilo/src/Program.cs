@@ -1,4 +1,5 @@
-﻿using Killerfilo.src.LinkedList;
+﻿using System.Reflection.Metadata;
+using Killerfilo.src.LinkedList;
 
 namespace Killerfilo.src
 {
@@ -6,18 +7,17 @@ namespace Killerfilo.src
     {
         private static void Main(string[] args)
         {
-            LinkedList.LinkedList<int> list = new();
-            for (int i = 0; i < 4; i++)
+            LinkedList.LinkedList<int> list = new(new(10));
+            for (int i = 0; i < 10; i++)
             {
-                list.Add(new ListNode<int>(i));
-                Console.WriteLine(i);
+                list.Add(new(i));
             }
             Console.WriteLine(list);
-
-            list.Remove(new(100));
+            list.Remove(new(10));
             Console.WriteLine(list);
-            
         }
+
+
 
     }
 }

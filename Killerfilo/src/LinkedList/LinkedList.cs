@@ -5,9 +5,9 @@ namespace Killerfilo.src.LinkedList
     class LinkedList<T>(ListNode<T>? head = null)
     {
         private ListNode<T>? head = head;
-        private int lenght = 0;
+        private int length = head == null ? 0 : 1;
 
-        public int Lenght { get => lenght; set => lenght = value; }
+        public int Length { get => length; set => length = value; }
         internal ListNode<T>? Head { get => head; set => head = value; }
 
         public void Add(ListNode<T> node)
@@ -15,9 +15,22 @@ namespace Killerfilo.src.LinkedList
             ArgumentNullException.ThrowIfNull(node);
             if (head == null)
             {
-                head = node;
-                lenght++;
+                AddToEmptyList(node);
                 return;
+            }
+            AddToEnd(node);
+
+        }
+        private void AddToEmptyList(ListNode<T> node)
+        {
+            head = node;
+            length++;
+        }
+        private void AddToEnd(ListNode<T> node)
+        {
+            if (head == null)
+            {
+                throw new NullReferenceException("Head is empty");
             }
 
             ListNode<T> curr = head;
@@ -26,7 +39,7 @@ namespace Killerfilo.src.LinkedList
                 curr = curr.Next;
             }
             curr.Next = node;
-            lenght++;
+            length++;
         }
 
         public void Remove(ListNode<T> node)
@@ -41,26 +54,45 @@ namespace Killerfilo.src.LinkedList
 
             if (head.Val != null && head.Val.Equals(val))
             {
-                head = head.Next;
+                RemoveHeadNode();
                 return;
             }
+            RemoveFromMiddle(node);
 
+        }
+
+        private void RemoveHeadNode()
+        {
+            if (head == null)
+            {
+                throw new NullReferenceException("Head is empty");
+            }
+            head = head.Next;
+            length--;
+        }
+        private void RemoveFromMiddle(ListNode<T> node)
+        {
+            if (head == null)
+            {
+                throw new NullReferenceException("Head is empty");
+            }
             ListNode<T>? prev = head;
             ListNode<T>? curr = head.Next;
 
             while (curr != null)
             {
-                if (curr.Val != null && curr.Val.Equals(val))
+                if (curr.Val != null && curr.Val.Equals(node.Val))
                 {
                     prev.Next = curr.Next;
-                    lenght--;
+                    length--;
                     return;
                 }
                 prev = curr;
                 curr = curr.Next;
             }
         }
-         public override string ToString()
+
+        public override string ToString()
         {
             if (head == null)
             {
@@ -76,7 +108,7 @@ namespace Killerfilo.src.LinkedList
             }
             stringBuilder.Append(curr.Val); // Append the last element without trailing comma
             stringBuilder.Append(']');
-            stringBuilder.Append($", Lenght = {lenght}");
+            stringBuilder.Append($", Length = {length}");
             return stringBuilder.ToString();
         }
     }
