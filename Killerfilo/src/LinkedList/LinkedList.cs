@@ -3,7 +3,7 @@ using Killerfilo.src.List;
 
 namespace Killerfilo.src.LinkedList
 {
-    class LinkedList<T>(ListNode<T> head) : List.List<T>(head)
+    class LinkedList<T>(ListNode<T>? head = null) : List.List<T>(head)
     {
         public override void Add(ListNode<T> node)
         {
