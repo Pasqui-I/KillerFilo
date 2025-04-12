@@ -1,6 +1,3 @@
-using System.Text;
-using Killerfilo.src.List;
-
 namespace Killerfilo.src.LinkedList
 {
     class LinkedList<T>(ListNode<T>? head = null) : List.List<T>(head)

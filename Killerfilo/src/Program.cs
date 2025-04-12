@@ -1,7 +1,4 @@
-﻿using System.Reflection.Metadata;
-using Killerfilo.src.LinkedList;
-
-namespace Killerfilo.src
+﻿namespace Killerfilo.src
 {
     class Program
     {
