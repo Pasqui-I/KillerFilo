@@ -4,15 +4,10 @@
     {
         private static void Main(string[] args)
         {
-            LinkedList.LinkedList<int> list = new();
-            Console.WriteLine(list);
-            for (int i = 0; i < 10; i++)
-            {
-                list.Add(new(i));
-            }
-            Console.WriteLine(list);
-            list.Add(new(10));
-            Console.WriteLine(list);
+            Set.Set<int> set = new();
+            set.Add(1);
+            set.Add(100);
+            Console.WriteLine(set.Exists(34));
         }
     }
 }

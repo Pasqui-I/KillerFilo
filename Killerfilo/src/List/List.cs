@@ -7,10 +7,10 @@ namespace Killerfilo.src.List
     {
         // Nodo di testa della lista
         private ListNode<T>? head = head;
-        protected readonly int length = (head == null) ? 0 : 1;
+        protected int length = (head == null) ? 0 : 1;
 
         // Proprietà per la lunghezza della lista
-        public int Length { get => length;}
+        public int Length => length;
         protected ListNode<T>? Head { get => head; set => head = value; }
 
         // Proprietà per il nodo di testa
