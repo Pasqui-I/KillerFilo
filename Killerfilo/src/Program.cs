@@ -14,12 +14,9 @@ namespace Killerfilo.src
                 list.Add(new(i));
             }
             Console.WriteLine(list);
-            list.Remove(new(10));
+            list.Add(new(10));
             Console.WriteLine(list);
         }
-
-
-
     }
 }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Killerfilo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdf8601315c8b0291ebe6e65da7f49cb18886855")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bd639a1acf71013afaab065f5745bdef187491c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Killerfilo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Killerfilo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

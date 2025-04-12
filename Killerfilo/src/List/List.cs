@@ -1,3 +1,4 @@
+using System.Text;
 using Killerfilo.src.LinkedList;
 
 namespace Killerfilo.src.List
@@ -22,6 +23,23 @@ namespace Killerfilo.src.List
         public abstract void Remove(ListNode<T> node);
 
         // Metodo per ottenere la rappresentazione della lista come stringa
-        public abstract override string ToString();
+        public override string ToString(){
+            if (Head == null)
+            {
+                return "Head : Empty";
+            }
+            StringBuilder stringBuilder = new();
+            stringBuilder.Append('[');
+            ListNode<T> curr = Head;
+            while (curr.Next != null)
+            {
+                stringBuilder.Append(curr.Val + ",");
+                curr = curr.Next;
+            }
+            stringBuilder.Append(curr.Val); // Append the last element without trailing comma
+            stringBuilder.Append(']');
+            stringBuilder.Append($", Length = {length}");
+            return stringBuilder.ToString();
+        }
     }
 }
